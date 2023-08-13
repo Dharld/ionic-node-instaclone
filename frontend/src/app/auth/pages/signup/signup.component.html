@@ -1,0 +1,21 @@
+<form class="form" [formGroup]="signupForm">
+  <label for="email">
+    Email
+    <input type="text" id="email" name="email" formControlName="email" />
+  </label>
+  <label for="password">
+    Password
+    <input
+      type="password"
+      id="password"
+      name="password"
+      formControlName="password"
+    />
+  </label>
+  <label for="confirmPassword">
+    Confirm Password
+    <input type="password" id="confirmPassword" name="confirmPassword" />
+  </label>
+  <button type="submit" (click)="signup()">Signup</button>
+  <div *ngIf="loading">Loading</div>
+</form>

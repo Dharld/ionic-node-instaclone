@@ -16,12 +16,14 @@ const signup = async (req, res, next) => {
 
     const userData = Object.assign({}, user.providerData[0]);
 
+    const token = await user.getIdToken();
     // Add the user to firestore
     const userRef = await firestore.collection("users").add(userData);
     console.log("Document written with ID: " + userRef.id);
 
     res.status(200).json({
       status: "Success",
+      token,
       data: userData,
     });
   } catch (error) {
